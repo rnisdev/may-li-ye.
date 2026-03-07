@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d47a1;
+    padding: 15px 40px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HEADER WITH BACKGROUND IMAGE */
+header {
+    background: url("https://images.unsplash.com/photo-1521791136064-7986c2920216") no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* SERVICES */
+.services {
+    padding: 60px 20px;
+    text-align: center;
+    background: #f2f4f8;
+}
+
+.card {
+    display: inline-block;
+    background: white;
+    margin: 15px;
+    padding: 25px 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* CONTACT */
+.contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+form input {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #0d47a1;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1565c0;
+}
+
+footer {
+    background: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .card {
+        display: block;
+        width: 90%;
+        margin: 15px auto;
+    }
+}
+
+body { background:#f4f6f9; font-family:Arial; text-align:center; }
+h1 { color:#0a1f44; margin-top:50px; }

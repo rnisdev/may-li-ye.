@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+
+<h2 style="text-align:center;">Admin Dashboard - MAY LI YE</h2>
+
+<table border="1" width="80%" align="center" cellpadding="10">
+    <tr style="background:#0d47a1;color:white;">
+        <th>ID</th>
+        <th>Non</th>
+        <th>Email</th>
+        <th>Telefòn</th>
+        <th>Sèvis</th>
+    </tr>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Kat Travay','Azil','TPS','Biznis'],
+        datasets: [{
+            label: 'Kantite Demann',
+            data: [5,3,2,4],
+        }]
+    }
+});
+</script>
+
+    {% for client in clients %}
+    <tr>
+        <td>{{ client[0] }}</td>
+        <td>{{ client[1] }}</td>
+        <td>{{ client[2] }}</td>
+        <td>{{ client[3] }}</td>
+        <td>{{ client[4] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
+<th>Actions</th>
+...
+<td>
+    <a href="/edit/{{ client[0] }}">Edit</a> |
+    <a href="/delete/{{ client[0] }}">Delete</a>
+</td>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<h2>Statistiques sèvis</h2>
+
+<canvas id="chart"></canvas>
+
+<script>
+
+fetch("/stats")
+.then(res => res.json())
+.then(data => {
+
+new Chart(document.getElementById("chart"), {
+
+type: "bar",
+
+data: {
+
+labels: data.labels,
+
+datasets: [{
+label: "Demand kliyan",
+data: data.values
+}]
+
+}
+
+})
+
+})
+
+</script>
+
+<h2>Client Documents</h2>
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Passport</th>
+<th>ID</th>
+<th>Photo</th>
+</tr>
+
+{% for d in docs %}
+
+<tr>
+
+<td>{{d[1]}}</td>
+
+<td>{{d[2]}}</td>
+
+<td>
+<a href="/uploads/{{d[3]}}" target="_blank">View Passport</a>
+</td>
+
+<td>
+<a href="/uploads/{{d[4]}}" target="_blank">View ID</a>
+</td>
+
+<td>
+<a href="/uploads/{{d[5]}}" target="_blank">View Photo</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h2>Client Cases</h2>
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Passport</th>
+<th>ID</th>
+<th>Photo</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+{% for d in docs %}
+
+<tr>
+
+<td>{{d[1]}}</td>
+<td>{{d[2]}}</td>
+
+<td><a href="/uploads/{{d[3]}}">View</a></td>
+
+<td><a href="/uploads/{{d[4]}}">View</a></td>
+
+<td><a href="/uploads/{{d[5]}}">View</a></td>
+
+<td>{{d[6]}}</td>
+
+<td>
+
+<a href="/status/{{d[0]}}/Approved">Approve</a>
+
+<a href="/status/{{d[0]}}/Pending">Pending</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
